@@ -31,4 +31,15 @@ class CalculatorUtilsMockTest {
         Mockito.verify(operations).tryResolve(operation,isFromResolve,listener)
     }
 
+    @Test
+    fun calc_callAddOperator_validSub_noReturn(){
+        val operator = "-"
+        val operation = "4+"//4+-3  ejemplo de validacion operacion matematica validad
+        var isCorrect = false
+        calculatorUtils.addOperator(operator, operation){
+            isCorrect = true
+        }
+        assertTrue(isCorrect)
+    }
+
 }
