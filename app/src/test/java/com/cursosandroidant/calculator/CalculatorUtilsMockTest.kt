@@ -21,7 +21,7 @@ class CalculatorUtilsMockTest {
 
     lateinit var calculatorUtils: CalculatorUtils
 
-    @Before
+    @Before//(Antes)
     fun setup() {
         calculatorUtils = CalculatorUtils(operations, listener)
     }
@@ -35,7 +35,7 @@ class CalculatorUtilsMockTest {
             operation,
             isFromResolve,
             listener
-        )//verificar que se cumpla la operaciones segun con calculatorUtils
+        )//(verify):verificar que se cumpla la operaciones segun con calculatorUtils
     }
 
     @Test//valida el operador menos despues del mas
@@ -49,7 +49,7 @@ class CalculatorUtilsMockTest {
         assertTrue(isCorrect)
     }
 
-    @Test//Metodo invalido no debe retornar otro operador menos
+    @Test//(assertFalse):Metodo invalido no debe retornar otro operador menos
     fun calc_callAddOperator_invalidSub_noReturn() {
         val operator = "-"
         val operation = "4+-"//4+-3  ejemplo de validacion operacion matematica validad
@@ -60,7 +60,7 @@ class CalculatorUtilsMockTest {
         assertFalse(isCorrect)
     }
 
-    @Test//adiccionar un punto 3*2. correcto
+    @Test//(verifyNoInteractions):adiccionar un punto 3*2. correcto
     fun calc_callAddPoint_firstPoint_no_Return() {
         val operator = "3*2"
         var isCorret = false
@@ -71,7 +71,7 @@ class CalculatorUtilsMockTest {
         Mockito.verifyNoInteractions(operations)//Verificar que nunca he llamado a operations En caso de que no tenga un punto o que lo tenga
     }
 
-    @Test//adiccionar un segundo punto 3*2..
+    @Test//(thenReturn):adiccionar un segundo punto 3*2..
     fun calc_callAddPoint_SecontPoint_noReturn() {
         val operation = "3.5*2"
         val operator = "*"
@@ -88,4 +88,5 @@ class CalculatorUtilsMockTest {
         verify(operations).getOperator(operation)
         verify(operations).divideOperation(operator,operation)
     }
+
 }
