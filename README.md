@@ -1,4 +1,4 @@
-https://discoversdkcdn.azureedge.net/postscontent/mockito2.jpg
+![image](https://discoversdkcdn.azureedge.net/postscontent/mockito2.jpg)
 
 # Mockito_Test
 Mockito es una librería Java que permite simular el comportamiento de una clase de forma dinámica. 
